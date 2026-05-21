@@ -1,14 +1,14 @@
 {
     "source": {
         "include": ["src"],
-        "includePattern": ".js$|.vue$", 
-        "exclude": ["node_modules"]
+        "includePattern": ".js$",
+        "exclude": ["node_modules", "src/views", "src/components", "src/App.vue"]
     },
     "opts": {
         "destination": "./docs",
         "recurse": true,
         "tutorials": "./tutorials",
-        "template": "./node_modules/docdash"
+        "template": "node_modules/docdash"
     },
     "docdash": {
         "tutorialsLabel": "Projekt Dokumentation"
