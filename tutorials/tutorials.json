@@ -1,0 +1,5 @@
+{
+    "01-arkitektur": { "title": "Teknisk Arkitektur" },
+    "02-datamodel": { "title": "Datamodel & Rettigheder" },
+    "03-teststrategi": { "title": "Test & Kvalitet" }
+}
