@@ -12,7 +12,8 @@ jobs:
       - uses: actions/setup-node@v4
         with: { node-version: 20 }
       - run: npm ci
-      - run: ./node_modules/.bin/jsdoc -c jsdoc.json
+      - name: Generate Documentation
+        run: npx jsdoc -c jsdoc.json
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
