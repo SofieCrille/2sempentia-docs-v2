@@ -5,6 +5,18 @@ import { signInWithEmailAndPassword, signOut, onAuthStateChanged, createUserWith
 import { doc, getDoc, setDoc, query, collection, where, getDocs, updateDoc, deleteDoc } from 'firebase/firestore';
 import { auth, db } from '@/firebase';
 
+/**
+ * @typedef {Object} UserData
+ * @property {string} name
+ * @property {string} role
+ * @property {string} [employeeNumber]
+ */
+
+/**
+ * AuthStore håndterer autentificering, brugerroller og Firebase Firestore synkronisering.
+ * @module stores/auth
+ */
+
 export const useAuthStore = defineStore('auth', () => {
   // ===== States =====
   const user = ref(null);
@@ -25,7 +37,12 @@ export const useAuthStore = defineStore('auth', () => {
 
   // ===== Actions =====
 
-  // Logger ind og henter brugerdata fra Firestore
+  /**
+   * Logger ind og henter brugerdata fra Firestore.
+   * @param {string} email 
+   * @param {string} password 
+   * @returns {Promise<string>} Brugerens rolle
+   */
   async function login(email, password) {
     const { user: u } = await signInWithEmailAndPassword(auth, email, password);
     user.value = u;
@@ -44,7 +61,16 @@ export const useAuthStore = defineStore('auth', () => {
       role.value = null;
     };
 
-    // Opretter ny customer og tilknytter dem til et eksisterende projekt
+    /**
+   * Opretter ny kunde og tilknytter til projekt.
+   * @param {Object} payload 
+   * @param {string} payload.name 
+   * @param {string} payload.email 
+   * @param {string} payload.password 
+   * @param {string} payload.projectNumber 
+   * @throws {Error} Hvis projektnummeret ikke findes
+   * @returns {Promise<string>} Rolle ('customer')
+   */
     async function createCustomer({ name, email, password, projectNumber }) {
       const q = query(
         collection(db, 'projects'),
@@ -72,7 +98,15 @@ export const useAuthStore = defineStore('auth', () => {
       return 'customer';
     };
 
-    // Opretter ny manager og fjerner deres medarbejdernummer fra whitelist
+    /**
+   * Opretter ny manager og sletter medarbejdernummer fra whitelist.
+   * @param {Object} payload 
+   * @param {string} payload.name 
+   * @param {string} payload.email 
+   * @param {string} payload.password 
+   * @param {string} payload.employeeNumber 
+   * @throws {Error} Hvis medarbejdernummeret ikke findes i whitelist
+   */
     async function createManager({ name, email, password, employeeNumber }) {
       const whitelistRef = doc(db, 'employeeWhitelist', employeeNumber);
       const whitelistSnap = await getDoc(whitelistRef); // Tjekker om medarbejdernummeret findes i whitelist collection
@@ -95,7 +129,10 @@ export const useAuthStore = defineStore('auth', () => {
       return 'manager';
     };
 
-    // Opdaterer brugerens data i Firestore
+    /**
+   * Opdaterer brugerens data i Firestore.
+   * @param {Object} data 
+   */
     async function updateUser(data) {
       if (!user.value) return;
       await updateDoc(doc(db, 'users', user.value.uid), data);
