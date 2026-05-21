@@ -2,6 +2,7 @@
 import { ref } from 'vue';
 import { storage } from '@/firebase';
 import { ref as storageRef, uploadBytes, getDownloadURL } from 'firebase/storage';
+import { ImagePlus } from 'lucide-vue-next';
 
 const emit = defineEmits(['uploaded']);
 
@@ -28,12 +29,27 @@ async function handleFileChange(event) {
 }
 </script>
 
-    <template>
+<template>
   <div class="photo-upload">
-    <input type="file" accept="image/*" @change="handleFileChange" />
-    
-    <p v-if="uploading">Uploader...</p>
+    <label class="photo-upload__dropzone">
+      <input
+        type="file"
+        accept="image/*"
+        class="photo-upload__input"
+        @change="handleFileChange"
+      />
 
-    <img v-if="previewUrl" :src="previewUrl" alt="Preview" />
+      <img
+        v-if="previewUrl"
+        :src="previewUrl"
+        alt="Preview"
+        class="photo-upload__preview"
+      />
+
+      <div v-else class="photo-upload__placeholder">
+        <ImagePlus class="photo-upload__icon" :size="32" />
+        <span>{{ uploading ? 'Uploader...' : 'Tilføj billede' }}</span>
+      </div>
+    </label>
   </div>
 </template>

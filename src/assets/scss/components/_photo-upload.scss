@@ -1,0 +1,46 @@
+// src/assets/scss/components/_photo-upload.scss
+@use '../abstracts/variables' as v;
+@use '../abstracts/mixins' as m;
+
+.photo-upload {
+
+  &__dropzone {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border: 2px dashed v.$color-accent;
+    border-radius: v.$radius-sm;
+    cursor: pointer;
+    overflow: hidden;
+    transition: border-color v.$transition-fast;
+
+    &:hover {
+      border-color: v.$color-primary;
+    }
+  }
+
+  &__input {
+    display: none;
+  }
+
+  &__placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: v.$spacing-xs;
+    color: v.$color-primary;
+    font-size: v.$font-size-body;
+  }
+
+  &__icon {
+    opacity: 0.7;
+  }
+
+&__preview {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+}

@@ -5,11 +5,11 @@
 .phase-selector {
   background: v.$color-white;
   border-radius: v.$radius-md;
-  padding: v.$spacing-md;
   display: flex;
   flex-direction: column;
   gap: v.$spacing-sm;
 }
+
 
 .phase-option {
   @include m.card-list;

@@ -4,17 +4,22 @@
 .base-input {
   width: 100%;
   height: 55px;
-  background: v.$color-white;
   display: flex;
   align-items: center;
-  padding: 0 1rem;
-  border-radius: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-  margin-bottom: 12px;
+  padding: 0 v.$spacing-md;
+  border-radius: v.$radius-md;
+  margin-bottom: v.$spacing-sm;
+  border: 1px solid v.$color-bg-neutral;
+  background: v.$color-white;
+  transition: border-color v.$transition-fast;
+
+  &:focus-within {
+    border-color: v.$color-primary;
+  }
 
   &__icon {
     width: 30px;
-    margin-right: 12px;
+    margin-right: v.$spacing-sm;
   }
 
   &__field {
@@ -29,7 +34,6 @@
 
     &::placeholder {
       color: #BBB;
-      letter-spacing: 0.05em;
     }
   }
 }

@@ -32,8 +32,6 @@ function isSelected(phase) {
 
 <template>
   <div class="phase-selector">
-    <h3>Vælg faser</h3>
-
     <div
       v-for="phase in phaseStore.standardPhases"
       :key="phase.id"

@@ -1,8 +1,24 @@
 // src/assets/scss/base/_global.scss
 @use '../abstracts/variables' as v;
+@use '../abstracts/mixins' as m;
 
 .fullbleed {
   margin-left: -#{v.$spacing-md};
   margin-right: -#{v.$spacing-md};
   margin-top: -#{v.$spacing-md};
+}
+
+.card-titled {
+  @include m.card-titled;
+
+  &__title {
+    font-size: v.$font-size-subtitle;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: v.$color-primary;
+    padding-bottom: v.$spacing-sm;
+    border-bottom: 1px solid v.$color-bg-neutral;
+    margin-bottom: v.$spacing-md;
+  }
 }

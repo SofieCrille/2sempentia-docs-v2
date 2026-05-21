@@ -31,3 +31,9 @@
   align-items: center;
   gap: v.$spacing-md;
 }
+
+@mixin card-titled {
+  background: v.$color-white;
+  border-radius: v.$radius-md;
+  padding: v.$spacing-md;
+}
