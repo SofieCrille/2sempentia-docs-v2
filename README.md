@@ -50,6 +50,7 @@ const firebaseConfig = {
 };
 ```
 
+
 ### 3. Start udviklingsserver
 
 ```sh
