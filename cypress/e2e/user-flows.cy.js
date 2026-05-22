@@ -2,8 +2,8 @@ describe('User Flows', () => {
   // Test 1: Login flow
   it('1. Bruger skal kunne logge ind', () => {
     cy.visit('/login');
-    cy.get('input[type="email"]').type('test@milton.dk');
-    cy.get('input[type="password"]').type('123456');
+    cy.get('input[type="email"]').type('manager@test.dk');
+    cy.get('input[type="password"]').type('test123');
     cy.get('button#login').click();
     cy.url().should('include', '/dashboard');
   });
@@ -25,6 +25,8 @@ describe('User Flows', () => {
   it('4. Bruger skal kunne logge ud', () => {
     // Først log ind
     cy.visit('/login');
+    cy.get('input[type="email"]').type('manager@test.dk');
+    cy.get('input[type="password"]').type('test123');
     cy.get('button#login').click();
     // Så log ud
     cy.get('#logout-btn').click();
