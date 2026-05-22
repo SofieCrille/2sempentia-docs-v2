@@ -28,6 +28,7 @@
     "@vitest/eslint-plugin": "^1.6.10",
     "@vue/test-utils": "^2.4.6",
     "cypress": "^15.13.0",
+    "docdash": "^2.0.2",
     "eslint": "^10.0.3",
     "eslint-plugin-cypress": "^6.2.1",
     "eslint-plugin-oxlint": "~1.51.0",
