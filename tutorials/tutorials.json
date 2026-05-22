@@ -1,5 +1,6 @@
 {
     "01-arkitektur": { "title": "Teknisk Arkitektur" },
-    "02-datamodel": { "title": "Datamodel & Rettigheder" },
-    "03-teststrategi": { "title": "Test & Kvalitet" }
+    "02-git-branching": { "title": "Git & Branching" },
+    "03-datamodel": { "title": "Datamodel & Rettigheder" },
+    "04-teststrategi": { "title": "Test & Kvalitet" }
 }
