@@ -9,7 +9,7 @@
     "preview": "vite preview",
     "deploy": "vite build && firebase deploy",
     "test:unit": "vitest run",
-    "docs": "jsdoc -c jsdoc.json",
+    "docs": "jsdoc -c jsdoc.json -t node_modules/docdash",
     "lint": "eslint ./src --ext .js,.vue",
     "lint:watch": "nodemon --watch src --ext js,vue --exec \"npm run lint\"",
     "lint:eslint": "eslint . --fix --cache"
