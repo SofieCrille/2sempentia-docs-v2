@@ -2,7 +2,7 @@
     "source": {
         "include": ["src"],
         "includePattern": ".js$",
-        "exclude": ["node_modules", "src/views", "src/components", "src/App.vue"]
+        "exclude": ["src/views", "src/components", "src/App.vue"]
     },
     "opts": {
         "destination": "./docs",
