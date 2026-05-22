@@ -22,3 +22,25 @@
     margin-bottom: v.$spacing-md;
   }
 }
+
+.nav-list {
+  background: v.$color-white;
+  border-radius: v.$radius-md;
+  overflow: hidden;
+
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: v.$spacing-md;
+    color: v.$color-primary;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+
+    &:not(:last-child) {
+      border-bottom: 1px solid v.$color-bg-neutral;
+    }
+  }
+}

@@ -1,6 +1,7 @@
 <script setup>
 import { onMounted } from 'vue';
 import { useManagerProject } from '@/composables/useManagerProject';
+import { ArrowRight } from 'lucide-vue-next';
 
 const { projectId, projectStore, loadProject, loadPhases } = useManagerProject();
 
@@ -11,41 +12,44 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="project-detail">
-    <section class="project-detail__image">
-      <img
-        v-if="projectStore.project?.imageUrl"
-        :src="projectStore.project.imageUrl"
-        alt="Projektbillede"
-      />
-    </section>
+  <section class="card-titled">
+    <h3 class="card-titled__title">Projektbillede</h3>
+    <img
+      v-if="projectStore.project?.imageUrl"
+      :src="projectStore.project.imageUrl"
+      alt="Projektbillede"
+      class="project-photo"
+    />
+  </section>
 
-     <section class="project-detail__info">
-      <h2>Projektoplysninger</h2>
-      <p><strong>Projektnummer</strong></p>
-      <p>{{ projectStore.project?.projectNumber }}</p>
-      <p><strong>Adresse</strong></p>
-      <p>{{ projectStore.project?.address }}</p>
-    </section>
+  <section class="card-titled">
+    <h3 class="card-titled__title">Projektoplysninger</h3>
+    <p class="info-label">Projektnummer</p>
+    <p class="info-value">{{ projectStore.project?.projectNumber }}</p>
+    <p class="info-label">Adresse</p>
+    <p class="info-value">{{ projectStore.project?.address }}</p>
+  </section>
 
-    <section class="project-detail__nav">
-      <RouterLink :to="{ name: 'manager-process', params: { projectId: projectId } }">
-        Byggeforløb →
-      </RouterLink>
-      <RouterLink to="/manager/documents">
-        Dokumenter →
-      </RouterLink>
-      <RouterLink to="/manager/chat">
-        Chat →
-      </RouterLink>
-    </section>
+  <nav class="nav-list">
+    <RouterLink :to="{ name: 'manager-process', params: { projectId } }" class="nav-list__item">
+      Byggeforløb
+      <ArrowRight :size="20" />
+    </RouterLink>
+    <RouterLink :to="{ name: 'manager-documents', params: { projectId } }" class="nav-list__item">
+      Dokumenter
+      <ArrowRight :size="20" />
+    </RouterLink>
+    <RouterLink :to="{ name: 'manager-chat', params: { projectId } }" class="nav-list__item">
+      Chat
+      <ArrowRight :size="20" />
+    </RouterLink>
+  </nav>
 
-    <section class="project-detail__customer">
-      <h2>Kunde</h2>
-      <p><strong>Fuldnavn</strong></p>
-      <p>{{ projectStore.customer?.name }}</p>
-      <p><strong>Email</strong></p>
-      <p>{{ projectStore.customer?.email }}</p>
-    </section>
-  </div>
+  <section class="card-titled">
+    <h3 class="card-titled__title">Kunde</h3>
+    <p class="info-label">Fuldnavn</p>
+    <p class="info-value">{{ projectStore.customer?.name }}</p>
+    <p class="info-label">Email</p>
+    <p class="info-value">{{ projectStore.customer?.email }}</p>
+  </section>
 </template>
