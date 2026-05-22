@@ -4,3 +4,4 @@ dist/
 .eslintcache
 cypress/videos
 cypress/screenshots
+docs/
