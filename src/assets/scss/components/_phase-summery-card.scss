@@ -1,23 +1,22 @@
 // _phase-summary-card.scss
 @use '../abstracts/mixins' as m;
+@use '../abstracts/variables' as v;
 
 .phase-summary-card {
   @include m.card-big;
+  aspect-ratio: 3 / 4;
+  justify-content: center;
+  gap: v.$spacing-md;
 
   &__label {
     font-size: 12px;
-    font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
-    margin: 0;
   }
 
   &__icon {
-    width: 64px;
-    height: 64px;
-  }
-
-  &__name {
-    font-size: 14px;
+    width: 40%;
+    height: auto;
+    object-fit: contain;
+    flex-shrink: 0;
   }
 }

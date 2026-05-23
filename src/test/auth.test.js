@@ -1,6 +1,6 @@
 import { describe, it, expect, beforeEach } from 'vitest';
 import { setActivePinia, createPinia } from 'pinia';
-import { useAuthStore } from './auth';
+import { useAuthStore } from '../stores/auth';
 
 /**
  * Tests for auth store getters

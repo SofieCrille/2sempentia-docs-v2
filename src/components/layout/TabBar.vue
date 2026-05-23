@@ -11,7 +11,7 @@ const customerTabs = [
   { label: 'Hjem', to: { name: 'customer-dashboard' }, icon: Home, goto: null },
   { label: 'Byggeforløb', to: { name: 'customer-process' }, icon: TrendingUp, goto: null },
   { label: 'Dokumenter', to: { name: 'customer-documents' }, icon: FileText, goto: null },
-  { label: 'Chat', to: { name: 'customer-chat' }, icon: MessageSquareMore, goto: null },
+  { label: 'Chat', to: { name: 'customer-chat-options' }, icon: MessageSquareMore, goto: null },
 ];
 
 const managerTabs = [

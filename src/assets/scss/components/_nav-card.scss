@@ -3,10 +3,13 @@
 
 .nav-card {
   @include m.card-big;
+  justify-content: center;
 
   &__icon {
     width: 48px;
     height: 48px;
+    object-fit: contain;
+    flex-shrink: 0;
   }
 
   &__label {
@@ -14,5 +17,11 @@
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.1em;
+  }
+
+    &--small {
+    @include m.card-list;
+    justify-content: center;
+    min-height: 80px;
   }
 }
