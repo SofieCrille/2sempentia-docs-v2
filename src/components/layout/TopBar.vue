@@ -1,10 +1,10 @@
 <script setup>
 import { useRoute, useRouter } from 'vue-router';
 import { useAuthStore } from '@/stores/auth';
-import { ArrowLeft, Settings, Search, Bell, Check } from '@lucide/vue';
+import { ArrowLeft, Settings, Search, Bell } from '@lucide/vue';
 import { computed } from 'vue';
 import { useCustomerProject } from '@/composables/useCustomerProject';
-import { getPhaseIcon } from '@/utils/PhaseIcons';
+import { getPhaseIcon } from '@/utils/phaseIcons';
 import NotificationBadge from '@/components/ui/NotificationBadge.vue';
 import StatusBadge from '@/components/ui/StatusBadge.vue'
 
