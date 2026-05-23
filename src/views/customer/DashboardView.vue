@@ -44,7 +44,7 @@ watch(projectId, loadPhases);
     <BaseList :items="customerDashboardLinks" class="dashboard-list">
       <template #item="{ item }">
         <RouterLink :to="item.route" class="no-underline">
-          <NavCard :label="item.label" :icon="item.icon" />
+          <NavCard :label="item.label" :icon="item.icon" class="nav-card--small" />
         </RouterLink>
       </template>
     </BaseList>
