@@ -56,7 +56,7 @@ const router = createRouter({
         {
           path: 'chat-options',
           name: 'customer-chat-options',
-          meta: { title: 'Chat' },
+          meta: { title: 'Chat'},
           component: () => import('@/views/customer/ChatOptionsView.vue'),
         },
         {
@@ -140,7 +140,7 @@ const router = createRouter({
         {
           path: 'create-project',
           name: 'manager-create-project',
-          meta: { title: 'Opret Projekt' },
+          meta: { title: 'Opret Projekt', layout: 'detail' },
           component: () => import('@/views/manager/CreateProjectView.vue')
         },
         {
