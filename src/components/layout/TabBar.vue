@@ -18,7 +18,7 @@ const managerTabs = [
   { label: 'Hjem', to: { name: 'manager-dashboard' }, icon: Home, goto: null },
   { label: 'Byggeforløb', to: { name: 'manager-projects', query: { goto: 'process' } }, icon: TrendingUp, goto: 'process' },
   { label: 'Dokumenter', to: { name: 'manager-projects', query: { goto: 'documents' } }, icon: FileText, goto: 'documents' },
-  { label: 'Chat', to: { name: 'manager-chat-list' }, icon: MessageSquareMore, goto: null },
+  { label: 'Chat', to: { name: 'manager-chat-options' }, icon: MessageSquareMore, goto: null },
 ];
 
 const tabs = computed(() =>

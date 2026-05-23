@@ -1,6 +1,4 @@
 <script setup>
-import Topbar from '@/components/layout/TopBar.vue';
-import Tabbar from '@/components/layout/TabBar.vue';
 import NavCard from '@/components/ui/NavCard.vue';
 </script>
 
