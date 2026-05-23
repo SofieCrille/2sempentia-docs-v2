@@ -1,6 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import { watch } from 'vue';
-import LoginView from '@/views/login/LoginView.vue';
 import { useAuthStore } from '@/stores/auth';
 
 const router = createRouter({
@@ -19,7 +18,7 @@ const router = createRouter({
     {
       path: '/login',
       name: 'login',
-      component: LoginView,
+      component: () => import('@/views/login/LoginView.vue'),
     },
     {
       path: '/login-create',
@@ -50,7 +49,7 @@ const router = createRouter({
         {
           path: 'process/:id',
           name: 'customer-process-details',
-          meta: { title: 'VÆGGE', layout: 'mobile' },
+          meta: { title: 'VÆGGE', layout: 'detail' },
           component: () => import('@/views/customer/ProcessDetailsView.vue'),
         },
         {
@@ -159,20 +158,35 @@ const router = createRouter({
     },
   ],
 });
-  // Guard
-  router.beforeEach(async (to) => {
+
+// Navigation Guard
+router.beforeEach(async (to) => {
   const auth = useAuthStore();
   const publicRoutes = ['motion', 'start-view', 'login', 'login-create', 'create-user'];
 
+  // Vent på at auth-state er bekræftet, så reload ikke fejl redirecter
   if (!auth.ready) {
-    await new Promise(resolve => {
-      const unwatch = watch(() => auth.ready, (val) => { if (val) { unwatch(); resolve(); } });
+    await new Promise((resolve) => {
+      const unwatch = watch(() => auth.ready, (val) => {
+        if (val) {
+          unwatch();
+          resolve();
+        }
+      });
     });
   }
 
+  // Public routes kræver ikke login
   if (publicRoutes.includes(to.name)) return true;
 
+  // Ikke logget ind til login
   if (!auth.user) return { name: 'login' };
+
+  // Logget ind, men forkert rolle til eget dashboard
+  const requiredRole = to.matched.find((r) => r.meta.role)?.meta.role;
+  if (requiredRole && auth.role !== requiredRole) {
+    return { name: auth.isManager ? 'manager-dashboard' : 'customer-dashboard' };
+  }
 });
 
 export default router;
