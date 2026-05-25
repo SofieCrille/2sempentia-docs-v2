@@ -1,5 +1,5 @@
 <script setup>
-import { getPhaseIcon } from '@/utils/PhaseIcons';
+import { getPhaseIcon } from '@/utils/phaseIcons';
 
 defineProps({
   name: String,

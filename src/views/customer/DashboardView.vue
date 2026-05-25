@@ -5,7 +5,7 @@ import { customerDashboardLinks } from '@/config/navigation';
 import BaseList from '@/components/ui/BaseList.vue';
 import NavCard from '@/components/ui/NavCard.vue';
 import ProgressBar from '@/components/ui/ProgressBar.vue';
-import PhaseSummaryCard from '@/components/phase/PhaseSummaryCard.vue'
+import PhaseSummaryCard from '@/components/phase/PhaseSummaryCard.vue';
 import dashboardImage from '/images/ProcessHouse.jpg';
 
 const { projectId, projectStore, phaseStore, loadPhases } = useCustomerProject();

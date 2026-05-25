@@ -1,11 +1,11 @@
 <!-- src/components/phase/PhaseSummaryCard.vue -->
 <script setup>
-import PhaseIcon from './PhaseIcon.vue'
+import PhaseIcon from './PhaseIcon.vue';
 
 defineProps({
   label: { type: String, required: true },
   phase: { type: Object, required: true }
-})
+});
 </script>
 
 <template>

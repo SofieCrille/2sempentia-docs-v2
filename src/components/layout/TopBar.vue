@@ -6,7 +6,7 @@ import { computed } from 'vue';
 import { useCustomerProject } from '@/composables/useCustomerProject';
 import { getPhaseIcon } from '@/utils/phaseIcons';
 import NotificationBadge from '@/components/ui/NotificationBadge.vue';
-import StatusBadge from '@/components/ui/StatusBadge.vue'
+import StatusBadge from '@/components/ui/StatusBadge.vue';
 
 defineProps({
   leftIcons: { type: Array, default: () => [] },

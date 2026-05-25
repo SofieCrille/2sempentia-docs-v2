@@ -1,8 +1,7 @@
 <script setup>
-import { computed } from 'vue'
-import { getStatusIcon } from '@/utils/PhaseIcons'
+import { getStatusIcon } from '@/utils/phaseIcons';
 
-const props = defineProps({
+defineProps({
   completed: { type: Boolean, default: false }
 });
 </script>

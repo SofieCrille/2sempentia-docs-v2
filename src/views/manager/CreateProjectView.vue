@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted } from 'vue';
+import { ref } from 'vue';
 import { useProjectStore } from '@/stores/project';
 import { useRouter } from 'vue-router';
 import PhotoUpload from '@/components/project/PhotoUpload.vue';
