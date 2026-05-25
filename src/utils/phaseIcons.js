@@ -9,14 +9,14 @@ const iconMap = {
 };
 
 export function getPhaseIcon(name) {
-  if (!name) return ''
-  const n = name.toLowerCase()
+  if (!name) return '';
+  const n = name.toLowerCase();
   for (const key in iconMap) {
-    if (n.includes(key)) return iconMap[key]
+    if (n.includes(key)) return iconMap[key];
   }
-  return ''
+  return '';
 };
 
 export function getStatusIcon(completed) {
-  return completed ? 'Done.png' : 'OnGoing.png'
+  return completed ? 'Done.png' : 'OnGoing.png';
 }

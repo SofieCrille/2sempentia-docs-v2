@@ -1,11 +1,11 @@
 <!-- src/components/phase/PhaseCard.vue -->
 <script setup>
-import PhaseIcon from './PhaseIcon.vue'
-import StatusBadge from '../ui/StatusBadge.vue'
+import PhaseIcon from './PhaseIcon.vue';
+import StatusBadge from '../ui/StatusBadge.vue';
 
 defineProps({
   phase: { type: Object, required: true }
-})
+});
 </script>
 
 <template>

@@ -2,8 +2,6 @@
 import { ref, onMounted } from 'vue';
 import { collection, query, orderBy, getDocs } from 'firebase/firestore';
 import { db } from '@/firebase';
-import Topbar from '@/components/layout/TopBar.vue';
-import TabBar from '@/components/layout/TabBar.vue';
 import BaseAccordion from '@/components/ui/BaseAccordion.vue';
 
 const faqs = ref([]);

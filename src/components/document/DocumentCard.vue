@@ -1,12 +1,12 @@
 <script setup>
-import { Download, Trash2 } from '@lucide/vue'
+import { Download, Trash2 } from '@lucide/vue';
 
 defineProps({
   document: { type: Object, required: true },
   deletable: { type: Boolean, default: false }
-})
+});
 
-defineEmits(['delete'])
+defineEmits(['delete']);
 </script>
 
 <template>

@@ -5,7 +5,7 @@ import BaseList from '@/components/ui/BaseList.vue';
 import PhaseCard from '@/components/phase/PhaseCard.vue';
 import ProgressBar from '@/components/ui/ProgressBar.vue';
 
-const { projectId, phaseStore, loadPhases } = useManagerProject();
+const { phaseStore, loadPhases } = useManagerProject();
 
 onMounted(loadPhases);
 </script>

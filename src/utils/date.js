@@ -7,20 +7,20 @@
  * @returns {string}
  */
 export function formatDate(timestamp, { time = false, relative = false } = {}) {
-  if (!timestamp?.seconds) return ''
+  if (!timestamp?.seconds) return '';
 
-  const d = new Date(timestamp.seconds * 1000)
-  const now = new Date()
-  const yesterday = new Date(now)
-  yesterday.setDate(yesterday.getDate() - 1)
+  const d = new Date(timestamp.seconds * 1000);
+  const now = new Date();
+  const yesterday = new Date(now);
+  yesterday.setDate(yesterday.getDate() - 1);
 
-  const clock = `${d.getHours()}:${String(d.getMinutes()).padStart(2, '0')}`
-  const date = `${d.getDate()}.${d.getMonth() + 1}.${d.getFullYear()}`
+  const clock = `${d.getHours()}:${String(d.getMinutes()).padStart(2, '0')}`;
+  const date = `${d.getDate()}.${d.getMonth() + 1}.${d.getFullYear()}`;
 
   if (relative) {
-    if (d.toDateString() === now.toDateString()) return time ? clock : 'I dag'
-    if (d.toDateString() === yesterday.toDateString()) return time ? `I går ${clock}` : 'I går'
+    if (d.toDateString() === now.toDateString()) return time ? clock : 'I dag';
+    if (d.toDateString() === yesterday.toDateString()) return time ? `I går ${clock}` : 'I går';
   }
 
-  return time ? `${date} ${clock}` : date
+  return time ? `${date} ${clock}` : date;
 }
