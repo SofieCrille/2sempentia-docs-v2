@@ -1,6 +1,9 @@
-import { describe, it, expect, beforeEach } from 'vitest';
+import { vi, describe, it, expect, beforeEach } from 'vitest';
 import { setActivePinia, createPinia } from 'pinia';
 import { useAuthStore } from '../stores/auth';
+
+vi.mock('firebase/auth', () => ({ getAuth: vi.fn(), onAuthStateChanged: vi.fn() }));
+vi.mock('@/firebase', () => ({ auth: {} }));
 
 /**
  * Tests for auth store getters
@@ -12,14 +15,8 @@ describe('auth store', () => {
   });
 
   it('isAuthenticated returnerer false når user er null', () => {
-    // Arrange
     const auth = useAuthStore();
     auth.user = null;
-
-    // Act
-    const result = auth.isAuthenticated;
-
-    // Assert
-    expect(result).toBe(false);
+    expect(auth.isAuthenticated).toBe(false);
   });
 });
