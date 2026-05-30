@@ -2,7 +2,7 @@ name: Deploy Docs
 
 on:
   push:
-    branches: [main]
+    branches: [main, refactor/auth-showcase]
   workflow_dispatch:
 
 permissions:
