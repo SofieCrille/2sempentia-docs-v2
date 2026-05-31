@@ -31,18 +31,21 @@ export const useAuthStore = defineStore('auth', () => {
 
   /**
    * Firebase Auth-bruger eller null hvis ikke logget ind.
+   * @memberof module:stores/auth
    * @type {object|null}
    */
   const user = ref(null);
 
   /**
    * Brugerens rolle, hentet fra Firestore.
+   * @memberof module:stores/auth
    * @type {('manager'|'customer'|null)}
    */
   const role = ref(null);
 
   /**
    * Brugerens fulde navn, hentet fra Firestore.
+   * @memberof module:stores/auth
    * @type {string|null}
    */
   const name = ref(null); 
@@ -50,6 +53,7 @@ export const useAuthStore = defineStore('auth', () => {
   /**
    * True når Firebase har afgjort, om brugeren er logget ind eller ej.
    * Bruges af router-guard til at vente med navigation, indtil auth-state er klar.
+   * @memberof module:stores/auth
    * @type {boolean}
    */
   const ready = ref(false);
@@ -59,18 +63,21 @@ export const useAuthStore = defineStore('auth', () => {
   /**
    * True hvis en bruger er logget ind.
    * Bruges af router-guard og UI til at vise log-ind/log-ud state.
+   * @memberof module:stores/auth
    * @type {boolean}
    */
   const isAuthenticated = computed(() => !!user.value);
 
   /**
    * True hvis den indloggede bruger er en manager.
+   * @memberof module:stores/auth
    * @type {boolean}
    */
   const isManager = computed(() => role.value === 'manager');
 
   /**
    * True hvis den indloggede bruger er en customer.
+   * @memberof module:stores/auth
    * @type {boolean}
    */
   const isCustomer = computed(() => role.value === 'customer');
@@ -83,6 +90,7 @@ export const useAuthStore = defineStore('auth', () => {
    * rolle og navn.
    *
    * @async
+   * @memberof module:stores/auth
    * @param {string} email - Brugerens email
    * @param {string} password - Brugerens password
    * @returns {Promise<('manager'|'customer'|undefined)>} Brugerens rolle, eller undefined hvis profilen ikke findes
@@ -108,6 +116,7 @@ export const useAuthStore = defineStore('auth', () => {
    * Logger den nuværende bruger ud og rydder storens state.
    *
    * @async
+   * @memberof module:stores/auth
    * @returns {Promise<void>}
    *
    * @example
@@ -128,6 +137,7 @@ export const useAuthStore = defineStore('auth', () => {
    * customerId opdateres til den nye brugers uid.
    *
    * @async
+   * @memberof module:stores/auth
    * @param {Object} payload - Customer-data
    * @param {string} payload.name - Customerens fulde navn
    * @param {string} payload.email - Email til den nye konto
@@ -177,6 +187,7 @@ export const useAuthStore = defineStore('auth', () => {
    * fjernes fra whitelisten, så det ikke kan genbruges.
    *
    * @async
+   * @memberof module:stores/auth
    * @param {Object} payload - Manager-data
    * @param {string} payload.name - Managerens fulde navn
    * @param {string} payload.email - Email til den nye konto
@@ -221,6 +232,7 @@ export const useAuthStore = defineStore('auth', () => {
    * afspejles i UI'et med det samme.
    *
    * @async
+   * @memberof module:stores/auth
    * @param {Partial<UserData>} data - Felter der skal opdateres
    * @returns {Promise<void>}
    *
