@@ -31,26 +31,26 @@ export const useAuthStore = defineStore('auth', () => {
 
   /**
    * Firebase Auth-bruger eller null hvis ikke logget ind.
-   * @type {import('vue').Ref<import('firebase/auth').User|null>}
+   * @type {object|null}
    */
   const user = ref(null);
 
   /**
    * Brugerens rolle, hentet fra Firestore.
-   * @type {import('vue').Ref<('manager'|'customer'|null)>}
+   * @type {('manager'|'customer'|null)}
    */
   const role = ref(null);
 
   /**
    * Brugerens fulde navn, hentet fra Firestore.
-   * @type {import('vue').Ref<string|null>}
+   * @type {string|null}
    */
   const name = ref(null); 
 
   /**
    * True når Firebase har afgjort, om brugeren er logget ind eller ej.
    * Bruges af router-guard til at vente med navigation, indtil auth-state er klar.
-   * @type {import('vue').Ref<boolean>}
+   * @type {boolean}
    */
   const ready = ref(false);
 
@@ -59,19 +59,19 @@ export const useAuthStore = defineStore('auth', () => {
   /**
    * True hvis en bruger er logget ind.
    * Bruges af router-guard og UI til at vise log-ind/log-ud state.
-   * @type {import('vue').ComputedRef<boolean>}
+   * @type {boolean}
    */
   const isAuthenticated = computed(() => !!user.value);
 
   /**
    * True hvis den indloggede bruger er en manager.
-   * @type {import('vue').ComputedRef<boolean>}
+   * @type {boolean}
    */
   const isManager = computed(() => role.value === 'manager');
 
   /**
    * True hvis den indloggede bruger er en customer.
-   * @type {import('vue').ComputedRef<boolean>}
+   * @type {boolean}
    */
   const isCustomer = computed(() => role.value === 'customer');
 
